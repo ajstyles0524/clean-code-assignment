@@ -1,0 +1,57 @@
+public class Main                                                   //main class
+{
+static class CleanCheck                                            //static class           
+{
+
+int smallestNumber;                                               //variable intialisation
+int largestNumber;
+}
+
+static CleanCheck findLargest_and_Smallest(int givenArray[], int sizeOfArray) 
+{
+CleanCheck objOfCheck = new CleanCheck();                          
+int i;
+
+if (sizeOfArray== 1) 
+{
+objOfCheck.largestNumber = givenArray[0];
+objOfCheck.smallestNumber = givenArray[0];
+return objOfCheck;
+}
+
+if (givenArray[0] > givenArray[1]) 
+{
+objOfCheck.largestNumber = givenArray[0];
+objOfCheck.smallestNumber = givenArray[0];
+} 
+else 
+{
+objOfCheck.largestNumber= givenArray[1];
+objOfCheck.smallestNumber= givenArray[0];
+}
+
+for (i = 2; i < sizeOfArray; i++) 
+{
+if (givenArray[i] > objOfCheck.largestNumber) 
+{
+objOfCheck.largestNumber = givenArray[i];
+}
+ else
+ if (givenArray[i] < objOfCheck.smallestNumber) 
+{
+objOfCheck.smallestNumber = givenArray[i];
+}
+}
+
+return objOfCheck;
+}
+
+public static void main(String args[])                           //main Method
+{
+int givenArray[] = {1000, 11, 445, 1, 330, 3000};               //array Declaration
+int sizeOfArray= 6;
+CleanCheck objOfCheck= findLargest_and_Smallest(givenArray, sizeOfArray);  //Passing value of Array and its Size
+System.out.printf("\nSmallest Numbber is =%d", objOfCheck.smallestNumber);     //Result
+System.out.printf("\nLargest Number  is = %d", objOfCheck.largestNumber);
+}
+}
